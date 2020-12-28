@@ -1,0 +1,16 @@
+
+public int getNumFilesLargerThan5MB(String folderPath) throws FolderNotFoundException {
+    File f = new File(folderPath);
+    if(!f.exists() && !f.isDirectory()) {
+        throw new FolderNotFoundException();
+    }
+
+        File[] files = f.listFiles(new FileFilter() {
+        @Override
+        public boolean accept(File dir, String name){
+            return (name.startWith("finki") && name.endWith("jpg"));
+        }
+    });
+
+    return files.listFiles();
+}
